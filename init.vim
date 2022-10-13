@@ -12,6 +12,7 @@ set relativenumber
 set laststatus=2
 
 so ~/.config/nvim/plugins.vim
+so ~/.config/nvim/lspconf.vim
 
 colorscheme dracula
 let g:colorscheme_bg = "dark"
@@ -26,3 +27,26 @@ nmap <Leader>nt :NERDTreeFind<CR>
 
 nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
+
+" EMMET configuration
+let g:user_emmet_mode='n'
+let g:user_emmet_leader_key=','
+let g:user_emmet_settings={
+\'javascript':{
+\'extends':'jsx'
+\}
+\}
+
+" prettier configuration
+command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
+nmap <C-F> :Prettier<CR>
+
+" comments configuration
+nmap <leader>7 :Commentary<CR>
+
+" space without exit normal mode
+" nmap <C-Enter> moO<Esc><CR>
+nmap <silent> O :<C-u>call append(line("."), repeat([""], v:count1))<CR>
+
+" indentLine configuration
+let g:indentLine_color_term = 239
